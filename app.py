@@ -79,7 +79,9 @@ def process_image(img):
             box_color = (255, 255, 255)
             text_color = (255, 255, 255)
 
-        label = f'{class_id}: {conf:.2f}'
+        hlm = "Helmet" if class_id == 0 else "No Helmet"
+
+        label = f'{hlm}: {conf:.2f}'
         cv2.rectangle(img, (x1, y1), (x2, y2), box_color, 2)
         cv2.putText(img, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, text_color, 2)
 
